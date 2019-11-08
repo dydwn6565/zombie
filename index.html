@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href = "style.css">
+    <link rel="stylesheet" type="text/css" href = "css/style.css">
 </head>
 <body>
        
-    <img id ="zombie" alt="zombie2" src = 'zombie2.gif' onclick=zombieboom()>
-    <img id ="zombie2" alt="zombie3" src = 'zombie2.gif' onclick=zombieboom2()>
+    <img id ="zombie" alt="zombie2" src = 'image/zombie2.gif' onclick=zombieboom()>
+    <img id ="zombie2" alt="zombie3" src = 'image/zombie2.gif' onclick=zombieboom2()>
     <button id = "button" onclick= resetthegame()  type = button alt = "end">End button</button>
     <div id="score">Score: 0</div> 
-    <audio id ="audio" src = 'zombiedeadsound.mp3' ></audio>
+    <audio id ="audio" src = 'src/zombiedeadsound.mp3' ></audio>
     
        
     <script>
@@ -23,6 +23,8 @@
             let zombieBottom2;
             let zombieSound;
             let score = 0;
+            
+            
 
             function zombiehunting(){
                 
@@ -34,7 +36,7 @@
                 ||document.documentElement.clientHeight
                 ||document.body.clientHeight;
                 
-                document.getElementById('zombie').src = 'zombie2.gif'
+                document.getElementById('zombie').src = 'image/zombie2.gif'
                 document.getElementById('zombie').style.position = 'absolute';
                 document.getElementById('zombie').style.top = zombieTop +"px";
                 document.getElementById('zombie').style.margin = "0px 0px 0px 0px";
@@ -42,7 +44,7 @@
                 document.getElementById('zombie').style.right = zombieRight+"px";
                 document.getElementById('zombie').style.bottom = zombieBottom + "px";
 
-                document.getElementById('zombie2').src = 'zombie2.gif'
+                document.getElementById('zombie2').src = 'image/zombie2.gif'
                 document.getElementById('zombie2').style.position = 'absolute';
                 document.getElementById('zombie2').style.top = zombieTop2 +"px";
                 document.getElementById('zombie2').style.margin = "0px 0px 0px 0px";
@@ -65,28 +67,39 @@
             
             }
             function zombieboom(){
-                document.getElementById('zombie').src = 'explosion2.gif'
+                document.getElementById('zombie').src = 'image/explosion2.gif'
                 document.getElementById('audio').play();
                 killedzombie()
             
             }
 
             function zombieboom2(){
-                document.getElementById('zombie2').src = 'explosion2.gif'
+                document.getElementById('zombie2').src = 'image/explosion2.gif'
                 document.getElementById('audio').play();
-                killedzombie()
+                killedzombie2()
             
             }
-            // let multipleClick = false;
+
+            let multipleClick = false;
             function killedzombie(){
-                // if(!multipleClick){
-                    // multipleClick = true;
+                if(!multipleClick){
+                    multipleClick = true;
                     score++;
                     document.getElementById('score').innerHTML = "Score:"+" " + score;
-                    // setTimeout(function(){multipleClick=false;}, 1000);
+                    setTimeout(function(){multipleClick=false;}, 1000);
                 }
-            // } 
-            
+            }
+            let multipleClick2 = false;    
+            function killedzombie2(){
+                if(!multipleClick2){
+                    multipleClick2 = true;
+                    score++;
+                    document.getElementById('score').innerHTML = "Score:"+" " + score;
+                    setTimeout(function(){multipleClick2=false;}, 1000);
+                }
+            }
+        
+
             function resetthegame(){
                 location.reload();
             }
