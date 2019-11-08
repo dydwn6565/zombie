@@ -1,0 +1,29 @@
+
+div{
+    width:100%;
+    font-size:50px;
+    text-align:center;
+    position:absolute;
+}
+#zombie{
+    width:70px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin: -50px 0px 0px -50px;
+}
+button{
+    
+    position:absolute;
+    left:50%;
+    top:95%;
+    margin: -50px 0px 0px -50px;
+
+}  
+
+#zombie2{
+    width:70px;
+    position:absolute;
+    top:10%;
+    left:10%;
+    margin: -50px 0px 0px -50px;
